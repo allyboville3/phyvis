@@ -1,13 +1,35 @@
 Package: phyvis
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Phylogenetic Analysis and Visialization
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: c(
+  person(given = "Amber"
+    family = "Kearns",
+    role= c("author", "creator"),
+    email = "akearns@utexas.edu")
+  person(given = "Ally"
+    family = "Boville",
+    role= c("author", "creator"),
+    email = "aboville@utexas.edu")
+  person(given = "Jessica"
+    family = "Valdes",
+    role= c("author", "creator"),
+    email = "jvaldes@utexas.edu"))
+Maintainer: Jessica Valdes <jvaldes@utexas.edu>
+Description: The fucntion in this package allows you to explore different areas of phylogenetic analyses with the crucial component of visualization. This function will plot the phylogenetic tree using ggtree(). Tip labels, a tree scale, and a legend have been added. The branch lengths have been colored in coral and black.
+Depends: R (>= 3.5)
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 7.2.3
+Imports: 
+    ape,
+    ggplot2,
+    dplyr,
+    seqinr
+VignetteBuilder: knitr
+Suggests: 
+    knitr,
+    rmarkdown
 URL: https://github.com/allyboville3/phyvis
 BugReports: https://github.com/allyboville3/phyvis/issues
