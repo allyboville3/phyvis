@@ -3,6 +3,7 @@
 #' @param x - data
 #' @keywords - DNA
 #' @export - makes the function available for others to use when your package is loaded
+#' require(ape)
 DNA.vis <- function(x) {
   if (class(x)=="DNAbin")
   {
