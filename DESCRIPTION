@@ -26,7 +26,8 @@ Imports:
     ape,
     ggplot2,
     dplyr,
-    seqinr
+    seqinr,
+    dots
 VignetteBuilder: knitr
 Suggests: 
     knitr,

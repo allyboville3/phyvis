@@ -25,6 +25,7 @@
 #' *Data Integration, Manipulation and Visualization of Phylogenetic Trees*
 #' <http://yulab-smu.top/treedata-book/index.html> by Guangchuang Yu.
 #' require(ape)
+#' require(dots)
 geom_tree <- function(mapping=NULL, data=NULL, layout="rectangular", multiPhylo=FALSE, continuous="none", position="identity", ...) {
   if (is.logical(continuous)){
     cli::cli_warn(c("The type of {.code continuous} argument was changed (v>=2.5.2). Now,",
@@ -134,6 +135,7 @@ stat_tree <- function(mapping=NULL, data=NULL, geom="segment", position="identit
   }
 }
 
+
 ## GeomTreeHorizontal <- ggproto("GeomTreeHorizontal",  GeomSegment,
 ##                               draw_panel =  function(data, panel_params, coord, ...) {
 ##                                   coords <- coord$transform(data, panel_params)
@@ -142,7 +144,7 @@ stat_tree <- function(mapping=NULL, data=NULL, geom="segment", position="identit
 ##                               }
 ##                               )
 
-StatTreeHorizontal <- ggproto("StatTreeHorizontal", Stat,
+StatTreeHorizontal <- ggplot2::ggproto("StatTreeHorizontal", ggplot2::Stat,
                               required_aes = c("node", "parent", "x", "y"),
                               compute_group = function(data, params) {
                                 data
@@ -216,7 +218,8 @@ StatTreeHorizontal <- ggproto("StatTreeHorizontal", Stat,
 )
 
 
-StatTreeVertical <- ggproto("StatTreeVertical", Stat,
+
+StatTreeVertical <- ggplot2::ggproto("StatTreeVertical", ggplot2::Stat,
                             required_aes = c("node", "parent", "x", "y"),
                             compute_group = function(data, params) {
                               data
@@ -285,7 +288,7 @@ StatTreeVertical <- ggproto("StatTreeVertical", Stat,
 
 
 
-StatTree <- ggproto("StatTree", Stat,
+StatTree <- ggplot2::ggproto("StatTree", ggplot2::Stat,
                     required_aes = c("node", "parent", "x", "y"),
                     compute_group = function(data, params) {
                       data
@@ -355,7 +358,7 @@ StatTree <- ggproto("StatTree", Stat,
 )
 
 
-StatTreeEllipse <- ggproto("StatTreeEllipse", Stat,
+StatTreeEllipse <- ggplot2::ggproto("StatTreeEllipse", ggplot2::Stat,
                            required_aes = c("node", "parent", "x", "y", "isTip"),
                            compute_group = function(data, params){
                              data
