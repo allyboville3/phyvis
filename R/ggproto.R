@@ -43,6 +43,11 @@
 #'   functions that become methods of the class or regular objects.
 #' @seealso
 #' The `r link_book("ggproto introduction section", "internals#sec-ggproto")`
+#' @import cli
+#' @import dots
+#' @import rlang
+#' @import ggplot2
+#' @import tidyverse
 #' @export
 #' @examples
 #' Adder <- ggproto("Adder",

@@ -2,8 +2,8 @@
 #' @description This function creates a summary for a single fasta file that includes frequencies of the four DNA bases, GC count, length of sequences, and two visualizations (one showing a colored image of the base pairs and the second showing relative counts of different codons or sets of three base pairs).
 #' @param x - data
 #' @keywords - DNA
-#' @export - makes the function available for others to use when your package is loaded
-#' require(ape)
+#' @import ape
+#' @export
 DNA.vis <- function(x) {
   if (class(x)=="DNAbin")
   {

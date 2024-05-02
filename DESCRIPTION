@@ -27,7 +27,10 @@ Imports:
     ggplot2,
     dplyr,
     seqinr,
-    dots
+    dots,
+    cli,
+    rlang,
+    tidyverse
 VignetteBuilder: knitr
 Suggests: 
     knitr,

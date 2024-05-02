@@ -22,6 +22,7 @@
 #' @importFrom ggplot2 ylim
 #' @importFrom ggplot2 coord_flip
 #' @importFrom ggplot2 coord_polar
+#' @import ape
 #' @export
 #' @author Yu Guangchuang
 #' @seealso [geom_tree()]
