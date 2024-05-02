@@ -30,7 +30,10 @@ Imports:
     dots,
     cli,
     rlang,
-    tidyverse
+    tidyverse,
+    utils,
+    methods,
+    magrittr
 VignetteBuilder: knitr
 Suggests: 
     knitr,

@@ -22,7 +22,13 @@
 #' @importFrom ggplot2 ylim
 #' @importFrom ggplot2 coord_flip
 #' @importFrom ggplot2 coord_polar
+#' @importFrom ggplot2 fortify
+#' @importFrom magrittr %<>%
+#' @import ggplot2
 #' @import ape
+#' @import utils
+#' @import methods
+#' @import cli
 #' @export
 #' @author Yu Guangchuang
 #' @seealso [geom_tree()]
@@ -137,4 +143,59 @@ ggtree <- function(tr,
   class(p) <- c("ggtree", class(p))
 
   return(p)
+}
+
+ggtree_citations <- function() {
+  paste0('1. ',
+         "Guangchuang Yu. ",
+         "Using ggtree to visualize data on tree-like structures. ",
+         "Current Protocols in Bioinformatics. 2020, 69:e96. doi:10.1002/cpbi.96\n",
+
+         '2. ',
+         "Guangchuang Yu, Tommy Tsan-Yuk Lam, Huachen Zhu, Yi Guan. ",
+         "Two methods for mapping and visualizing associated data on phylogeny using ggtree. ",
+         "Molecular Biology and Evolution. 2018, 35(12):3041-3043. doi:10.1093/molbev/msy194\n",
+
+         # '\033[36m', '-', '\033[39m ',
+         "3. ",
+         "Guangchuang Yu, David Smith, Huachen Zhu, Yi Guan, Tommy Tsan-Yuk Lam. ",
+         "ggtree: an R package for visualization and annotation of phylogenetic trees with their covariates and other associated data. ",
+         "Methods in Ecology and Evolution. 2017, 8(1):28-36. doi:10.1111/2041-210X.12628\n"
+  )
+}
+
+
+ggtree_references <- function() {
+  paste0(ggtree_citations(), "\n",
+         "For more information, please refer to the online book:",
+         "Data Integration, Manipulation and Visualization of Phylogenetic Trees.",
+         "<http://yulab-smu.top/treedata-book/>\n"
+  )
+}
+
+check.graph.layout <- function(tr, trash, layout, layout.params){
+  if (inherits(trash, "try-error")){
+    gp <- ape::as.igraph.phylo(as.phylo(tr), use.labels = FALSE)
+    #dd <- ggraph::create_layout(gp, layout = layout)
+    if (is.function(layout)){
+      dd <- do.call(layout, c(list(gp), layout.params))
+      if (!inherits(dd, "matrix")){
+        if ("xy" %in% names(dd)){
+          dd <- dd$xx
+        }else if ("layout" %in% names(dd)){
+          dd <- dd$layout
+        }else{
+          stop(trash, call. = FALSE)
+        }
+      }
+      dd <- data.frame(dd)
+      colnames(dd) <- c("x", "y")
+      dd$node <- seq_len(nrow(dd))
+    }else{
+      stop(trash, call. = FALSE)
+    }
+  }else{
+    dd <- NULL
+  }
+  return(dd)
 }
