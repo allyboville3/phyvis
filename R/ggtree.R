@@ -22,9 +22,7 @@
 #' @importFrom ggplot2 ylim
 #' @importFrom ggplot2 coord_flip
 #' @importFrom ggplot2 coord_polar
-#' @importFrom ggplot2 fortify
 #' @importFrom magrittr %<>%
-#' @import ggplot2
 #' @import ape
 #' @import utils
 #' @import methods
